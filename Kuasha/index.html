@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marriage Biodata</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="biodata-container">
+    <h2>Biodata</h2>
+    <form action="#" method="POST">
+      <div class="section">
+        <div class="section-title">Personal Information</div>
+        <div class="info-grid">
+          <div><label for="fullname">Full Name:</label></div>
+          <div><input type="text" id="fullname" name="fullname" value="Mst kamily zaman" required /></div>
+
+          <div><label for="dob">Date of Birth:</label></div>
+          <div><input type="date" id="dob" name="dob" value="2001-08-24" required /></div>
+
+          <div>Gender:</div>
+          <div>
+            <label><input type="radio" name="gender" value="Female" checked /> Female</label>
+            <label><input type="radio" name="gender" value="Male" /> Male</label>
+          </div>
+
+          <div><label for="height">Height:</label></div>
+          <div><input type="text" id="height" name="height" placeholder=" 5'3&quot;" /></div>
+
+          <div><label for="religion">Religion:</label></div>
+          <div>
+            <select id="religion" name="religion" required>
+              <option value="">Select</option>
+              <option value="Islam">Islam</option>
+              <option value="Hinduism">Hinduism</option>
+              <option value="Christianity">Christianity</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div><label for="nationality">Nationality:</label></div>
+          <div><input type="text" id="nationality" name="nationality" value="Bangladeshi" readonly /></div>
+
+          <div>Marital Status:</div>
+          <div>
+            <label><input type="radio" name="marital" value="Never Married" checked /> Never Married</label>
+            <label><input type="radio" name="marital" value="Married" /> Married</label>
+          </div>
+
+          <div><label for="education">Education:</label></div>
+          <div><input type="text" id="education" name="education" value="B.Sc in Computer Science and Engineering (CSE), DIU" /></div>
+
+          <div><label for="presentAddress">Present Address:</label></div>
+          <div><input type="text" id="presentAddress" name="presentAddress" value="Mirpur" /></div>
+
+          <div><label for="permanentAddress">Permanent Address:</label></div>
+          <div><input type="text" id="permanentAddress" name="permanentAddress" value="poradha, kushtia" /></div>
+
+          <div><label for="contactNumber">Contact Number:</label></div>
+          <div><input type="tel" id="contactNumber" name="contactNumber" value="01305937617" /></div>
+
+          <div><label for="email">Email ID:</label></div>
+          <div><input type="email" id="email" name="email" value="kamilyzaman1@gmail.com" /></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Family Details</div>
+        <div class="info-grid">
+          <div><label for="fatherName">Father’s Name & Occupation:</label></div>
+          <div><input type="text" id="fatherName" name="fatherName" placeholder=" Md. Kamruzzaman, Farmer" /></div>
+
+          <div><label for="motherName">Mother’s Name & Occupation:</label></div>
+          <div><input type="text" id="motherName" name="motherName" placeholder="Monira Begum, Housewife" /></div>
+
+          <div><label for="siblings">Siblings:</label></div>
+          <div><input type="text" id="siblings" name="siblings" placeholder=" No brother and sister" /></div>
+
+          <div>Family Type:</div>
+          <div>
+            <label><input type="radio" name="familyType" value="Joint" checked /> Joint</label>
+            <label><input type="radio" name="familyType" value="Nuclear" /> Nuclear</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Hobbies & Interests</div>
+        <ul class="hobbies">
+          <li><label><input type="checkbox" name="hobbies" value="Reading" checked /> Reading</label></li>
+          <li><label><input type="checkbox" name="hobbies" value="Travelling" checked /> Travelling</label></li>
+          <li><label><input type="checkbox" name="hobbies" value="Spending time with family" checked /> Spending time with family</label></li>
+          <li><label><input type="checkbox" name="hobbies" value="Cooking" /> Cooking</label></li>
+          <li><label><input type="checkbox" name="hobbies" value="Gardening" /> Gardening</label></li>
+        </ul>
+      </div>
+
+      <div class="submit-btn">
+        <button type="submit">Submit Biodata</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
