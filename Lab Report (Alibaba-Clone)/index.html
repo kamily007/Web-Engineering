@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alibaba.com - Leading B2B Trading Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-image: url('https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-fall-waterfall-free-image.jpeg?w=600&quality=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .header {
+            padding: 0 20px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6a00;
+            text-decoration: none;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .header-links a:hover {
+            color: #ff6a00;
+        }
+
+        .create-account-btn {
+            background: #ff6a00;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .create-account-btn:hover {
+            background: #e55a00;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-item {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+            color: #ff6a00;
+        }
+
+        .hero {
+            background: linear-gradient url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%23333"/><circle cx="200" cy="150" r="80" fill="%23444" opacity="0.3"/><circle cx="800" cy="400" r="120" fill="%23444" opacity="0.2"/><rect x="100" y="300" width="200" height="100" fill="%23555" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="people" x="0" y="0" width="400" height="300" patternUnits="userSpaceOnUse"><ellipse cx="100" cy="80" rx="30" ry="40" fill="%23666" opacity="0.3"/><rect x="85" y="120" width="30" height="60" fill="%23666" opacity="0.3"/><ellipse cx="250" cy="90" rx="25" ry="35" fill="%23777" opacity="0.3"/><rect x="238" y="125" width="25" height="50" fill="%23777" opacity="0.3"/><ellipse cx="320" cy="85" rx="28" ry="38" fill="%23666" opacity="0.3"/><rect x="305" y="123" width="28" height="55" fill="%23666" opacity="0.3"/></pattern></defs><rect width="1200" height="600" fill="url(%23people)"/></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            padding-left: 20px;
+        }
+
+        .play-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .play-icon {
+            width: 20px;
+            height: 20px;
+            background: #ff6a00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            max-width: 1000px;
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 25px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: #333;
+            background: transparent;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .camera-icon {
+            padding: 12px;
+            color: #999;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .search-button {
+            background: #ff6a00;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: #e55a00;
+        }
+
+        .frequently-searched {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .frequently-searched-label {
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        .search-tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .search-tag:hover {
+            background: rgba(255, 106, 0, 0.2);
+            border-color: #ff6a00;
+            color: #ff6a00;
+        }
+
+        .floating-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #ff6a00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+
+        .floating-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Business Features Section */
+        .features-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #2c1810 0%, #2c1810  25%, #2c1810  50%, #2c1810  75%, #2c1810  100%);
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            border-radius: 12px;
+            overflow: visible;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card {
+            padding: 50px 40px;
+            color: white;
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-card:nth-child(1) {
+            background: linear-gradient(135deg, #3d2419 0%, #2c1810 100%);
+        }
+
+        .feature-card:nth-child(2) {
+            background: linear-gradient(135deg, #4a2c1a 0%, #3d2419 100%);
+        }
+
+        .feature-card:nth-child(3) {
+            background: linear-gradient(135deg, #5c3520 0%, #4a2c1a 100%);
+        }
+
+        .feature-card:nth-child(4) {
+            background: linear-gradient(135deg, #6b3d24 0%, #683c24 100%);
+        }
+
+        .icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .icon {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .icon svg {
+            width: 36px;
+            height: 36px;
+            fill: white;
+        }
+
+        .feature-card:nth-child(4) .icon {
+            background: rgba(255, 149, 61, 0.2);
+        }
+
+        .feature-card:nth-child(4) .icon svg {
+            fill: #ff953d;
+        }
+
+        .feature-card:nth-child(4):hover .icon {
+            background: rgba(255, 149, 61, 0.3);
+        }
+
+        .feature-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-title {
+            color: #ff953d;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-description {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-left, .nav-right {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .search-container {
+                max-width: 100%;
+            }
+
+            .frequently-searched {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-card {
+                padding: 40px 30px;
+                min-height: 300px;
+            }
+            
+            .feature-title {
+                font-size: 22px;
+                white-space: normal;
+            }
+            
+            .feature-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <a href="#" class="logo">Alibaba.com</a>
+            <div class="header-right">
+                <div class="language-selector">
+                    <span>Deliver to: 🇺🇸 US</span>
+                    <span>🌐 English-BDT</span>
+                </div>
+                <div class="header-links">
+                    <a href="#">🛒</a>
+                    <a href="#">👤 Sign in</a>
+                    <a href="#" class="create-account-btn">Create account</a>
+                </div>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <div class="nav-left">
+                <a href="all-catagory.html" class="nav-item">☰ All categories</a>
+                <a href="feateared-selection.html" class="nav-item">Featured selections</a>
+                <a href="#" class="nav-item">Order protections</a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-item">AI sourcing agent</a>
+                <a href="#" class="nav-item">Buyer Central</a>
+                <a href="#" class="nav-item">Help Center</a>
+                <a href="#" class="nav-item">App & extension</a>
+                <a href="signup.html" class="nav-item">Become a supplier</a>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br><br><br>
+
+    <main class="hero">
+        <div class="hero-content">
+            <a href="#" class="play-button">
+                <div class="play-icon">▶</div>
+                Learn about Alibaba.com
+            </a>
+            
+            <h1 class="hero-title">
+                <p>The leading B2B ecommerce platform for </p>
+                <p>global trade</p>
+            </h1>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="electric scooter" id="searchInput">
+                <span class="camera-icon" onclick="handleCameraClick()">📷</span>
+                <button class="search-button" onclick="handleSearch()">🔍 Search</button>
+            </div>
+            
+            <div class="frequently-searched">
+                <span class="frequently-searched-label">Frequently searched:</span>
+                <a href="#" class="search-tag">iphones 15 pro max</a>
+                <a href="#" class="search-tag">women's clothing</a>
+                <a href="#" class="search-tag">lululemon sets women</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Business Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Millions of business </h3>
+                    <p class="feature-description">Explore products and suppliers for your business from millions of offerings worldwide.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Assured quality</h3>
+                    <p class="feature-description">Ensure production quality from verified suppliers, with your orders protected from payment to delivery.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">One-stop trading solution</h3>
+                    <p class="feature-description">Order seamlessly from product/supplier search to order management, payment, and fulfillment.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Tailored trading experience</h3>
+                    <p class="feature-description">Get curated benefits, such as exclusive discounts, enhanced protection, and extra support, to help grow your business every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-icon" onclick="handleFloatingIcon()">
+        🎯
+    </div>
+
+    <script>
+        function handleSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                alert(`Searching for: ${searchTerm}`);
+                // In a real application, this would redirect to search results
+                console.log('Search term:', searchTerm);
+            } else {
+                alert('Please enter a search term');
+            }
+        }
+
+        function handleCameraClick() {
+            alert('Camera search feature - Upload an image to search for similar products');
+            // In a real application, this would open a file picker for image upload
+        }
+
+        function handleFloatingIcon() {
+            alert('Quick access menu - Connect with suppliers, get quotes, and more!');
+        }
+
+        // Add search functionality on Enter key press
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        });
+
+        // Add click handlers for search tags
+        document.querySelectorAll('.search-tag').forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                e.preventDefault();
+                const searchTerm = this.textContent;
+                document.getElementById('searchInput').value = searchTerm;
+                handleSearch();
+            });
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.search-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Simple animation for the floating icon
+        const floatingIcon = document.querySelector('.floating-icon');
+        let isAnimating = false;
+
+        setInterval(() => {
+            if (!isAnimating) {
+                floatingIcon.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    floatingIcon.style.transform = 'scale(1)';
+                }, 500);
+            }
+        }, 3000);
+
+        floatingIcon.addEventListener('mouseenter', () => {
+            isAnimating = true;
+        });
+
+        floatingIcon.addEventListener('mouseleave', () => {
+            isAnimating = false;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alibaba.com - Global trade starts here</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 10px 0;
+        }
+
+        .header-content {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6900;
+        }
+
+        .deliver-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #ff6900;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 0 50px;
+        }
+
+        .nav-item {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-item:hover {
+            color: #ff6900;
+        }
+
+        /* Main Content */
+        .main-content {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            padding: 20px 50px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-item:hover {
+            color: #ff6900;
+        }
+
+        .category-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #ddd;
+            border-radius: 2px;
+        }
+
+        /* Products Grid */
+        .products-section {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .products-section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .product-name {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Product Images */
+        .book-bag { background: linear-gradient(135deg, #e8e8e8, #f5f5f5); }
+        .backpack { background: linear-gradient(135deg, #2c3e50, #34495e); }
+        .safety-helmet { background: linear-gradient(135deg, #f1c40f, #f39c12); }
+        .boys-shorts { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .quartz-watch { background: linear-gradient(135deg, #95a5a6, #7f8c8d); }
+        .dumbbells { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .kettlebells { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .ballistic-helmet { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .free-weights { background: linear-gradient(135deg, #2c3e50, #34495e); }
+        .gym-equipment { background: linear-gradient(135deg, #2c3e50, #34495e); }
+        .panties { background: linear-gradient(135deg, #f8f9fa, #e9ecef); }
+        .bullet-proof-vest { background: linear-gradient(135deg, #2c3e50, #34495e); }
+        .barbell { background: linear-gradient(135deg, #95a5a6, #7f8c8d); }
+        .tactical-vest { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">Alibaba.com</div>
+            <div class="deliver-info">
+                <span>Deliver to:</span>
+                <span>🇧🇩 BD</span>
+                <span>English-BDT</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary">🛒</button>
+                <button class="btn btn-secondary">👤 Sign in</button>
+                <button class="btn btn-primary">Create account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <div class="nav-content">
+            <a href="#" class="nav-item">☰ All categories</a>
+            <a href="#" class="nav-item">Featured selections</a>
+            <a href="#" class="nav-item">Order protections</a>
+            <div style="margin-left: auto; display: flex; gap: 30px;">
+                <a href="#" class="nav-item">AI sourcing agent</a>
+                <a href="#" class="nav-item">Buyer Central</a>
+                <a href="#" class="nav-item">Help Center</a>
+                <a href="#" class="nav-item">App & extension</a>
+                <a href="#" class="nav-item">Become a supplier</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>⭐ Categories for you</h3>
+            <a href="#" class="category-item">
+                <div class="category-icon"></div>
+                Jewelry, Eyewear & Watches
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon"></div>
+                Apparel & Accessories
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon"></div>
+                Home & Garden
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon"></div>
+                Sports & Entertainment
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon"></div>
+                MRO
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon"></div>
+                Consumer Electronics
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon"></div>
+                Beauty
+            </a>
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-section">
+            <h2>Categories for you</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image book-bag">📚</div>
+                    <div class="product-name">Book Bag</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image backpack">🎒</div>
+                    <div class="product-name">Backpack</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image safety-helmet">⛑️</div>
+                    <div class="product-name">Safety Helmets</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image boys-shorts">🩳</div>
+                    <div class="product-name">Boys shorts</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image quartz-watch">⌚</div>
+                    <div class="product-name">Quartz Watches</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image dumbbells">🏋️</div>
+                    <div class="product-name">Dumbbells</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image kettlebells">🏋️</div>
+                    <div class="product-name">Kettlebells</div>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image ballistic-helmet">🪖</div>
+                    <div class="product-name">Ballistic Helmet</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image free-weights">🏋️</div>
+                    <div class="product-name">Free Weights</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image gym-equipment">💪</div>
+                    <div class="product-name">Gym Equipment</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image panties">👙</div>
+                    <div class="product-name">Panties</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image bullet-proof-vest">🦺</div>
+                    <div class="product-name">Bullet Proof Vest</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image barbell">🏋️</div>
+                    <div class="product-name">Barbell</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image tactical-vest">🦺</div>
+                    <div class="product-name">Tactical Vest</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

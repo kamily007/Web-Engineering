@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alibaba.com - Leading B2B Trading Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FF6B35;
+            margin-left: 5px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .deliver-to {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 18px;
+            background: linear-gradient(to bottom, #006A4E 0%, #006A4E 33%, #F42A41 33%, #F42A41 100%);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .flag-icon::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #F42A41;
+            border-radius: 50%;
+        }
+
+        .cart-icon {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+        }
+
+        .sign-in-btn {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .create-account-btn {
+            background: #FF6B35;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .create-account-btn:hover {
+            background: #e55a2d;
+        }
+
+        .nav-bar {
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-item {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: #FF6B35;
+        }
+
+        .nav-item.categories {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hamburger-icon {
+            width: 16px;
+            height: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger-icon span {
+            width: 100%;
+            height: 2px;
+            background: #333;
+            border-radius: 1px;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .content-left {
+            flex: 1;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 50%;
+            font-size: 32px;
+            color: #333;
+        }
+
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .sidebar-item {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-item:hover {
+            color: #FF6B35;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            .feature-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 0 20px;
+            }
+        }
+
+        .dropdown-arrow {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .user-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Icons using CSS */
+        .trophy-icon::before {
+            content: "🏆";
+            font-size: 32px;
+        }
+
+        .new-icon::before {
+            content: "🆕";
+            font-size: 32px;
+        }
+
+        .tag-icon::before {
+            content: "🏷️";
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="logo">
+                <div class="logo-text">Alibaba.com</div>
+            </div>
+            
+            <div class="header-right">
+                <div class="deliver-to">
+                    <span>Deliver to:</span>
+                    <div class="flag-icon"></div>
+                    <span>US</span>
+                </div>
+                
+                <div class="language-selector">
+                    <div class="flag-icon"></div>
+                    <span>English-BDT</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                
+                <div class="cart-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 22C9.55 22 10 21.55 10 21C10 20.45 9.55 20 9 20C8.45 20 8 20.45 8 21C8 21.55 8.45 22 9 22Z"/>
+                        <path d="M20 22C20.55 22 21 21.55 21 21C21 20.45 20.55 20 20 20C19.45 20 19 20.45 19 21C19 21.55 19.45 22 20 22Z"/>
+                        <path d="M1 1H5L7.68 14.39C7.77 14.8 8.13 15.1 8.55 15.1H19.4C19.82 15.1 20.18 14.8 20.27 14.39L22 5H6"/>
+                    </svg>
+                </div>
+                
+                <a href="#" class="sign-in-btn">
+                    <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Sign in</span>
+                </a>
+                
+                <button class="create-account-btn">Create account</button>
+            </div>
+        </div>
+        
+        <nav class="nav-bar">
+            <div class="nav-container">
+                <div class="nav-menu">
+                    <a href="#" class="nav-item categories">
+                        <div class="hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span>All categories</span>
+                    </a>
+                    <a href="#" class="nav-item">Featured selections</a>
+                    <a href="#" class="nav-item">Order protections</a>
+                    <a href="#" class="nav-item">AI sourcing agent</a>
+                    <a href="#" class="nav-item">Buyer Central</a>
+                    <a href="#" class="nav-item">Help Center</a>
+                    <a href="#" class="nav-item">App & extension</a>
+                    <a href="#" class="nav-item">Become a supplier</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="content-left">
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon trophy-icon"></div>
+                    <h3 class="feature-title">Top ranking</h3>
+                    <p class="feature-description">Discover the most popular and highly-rated products from trusted suppliers</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon new-icon"></div>
+                    <h3 class="feature-title">New arrivals</h3>
+                    <p class="feature-description">Explore the latest products and innovations from suppliers worldwide</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon tag-icon"></div>
+                    <h3 class="feature-title">Top deals</h3>
+                    <p class="feature-description">Find the best prices and exclusive offers from verified suppliers</p>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <a href="#" class="sidebar-item">Dropshipping center</a>
+            <a href="#" class="sidebar-item">Sample center</a>
+            <a href="#" class="sidebar-item">Fast customization</a>
+            <a href="#" class="sidebar-item">Online Trade Show</a>
+        </aside>
+    </main>
+
+    <script>
+        // Add click handlers for interactive elements
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.feature-title').textContent;
+                alert(`Navigating to ${title} section`);
+            });
+        });
+
+        // Language selector
+        document.querySelector('.language-selector').addEventListener('click', function() {
+            alert('Language/Currency selector menu would open here');
+        });
+
+        // Create account button
+        document.querySelector('.create-account-btn').addEventListener('click', function() {
+            alert('Redirecting to create account page...');
+        });
+
+        // Sign in link
+        document.querySelector('.sign-in-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Redirecting to sign in page...');
+        });
+
+        // Cart icon
+        document.querySelector('.cart-icon').addEventListener('click', function() {
+            alert('Opening shopping cart...');
+        });
+
+        // Navigation items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.textContent.trim();
+                alert(`Navigating to ${text} section`);
+            });
+        });
+
+        // Sidebar items
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.textContent.trim();
+                alert(`Opening ${text}...`);
+            });
+        });
+    </script>
+</body>
+</html>

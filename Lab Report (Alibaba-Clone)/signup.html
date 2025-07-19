@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alibaba - Sign up as a supplier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .left-section {
+            flex: 1;
+            width: 50%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            color: white;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.4;
+            max-width: 650px;
+        }
+
+        .right-section {
+            flex: 1;
+            width: 50%;
+            background: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo::before {
+            margin-right: 8px;
+            font-size: 28px;
+        }
+
+        .language-selector {
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .signup-form {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .location-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            background: linear-gradient(to bottom, #006A4E 0%, #006A4E 33%, #F42A41 33%, #F42A41 100%);
+            border-radius: 2px;
+            margin-right: 8px;
+            position: relative;
+        }
+
+        .flag-icon::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: #F42A41;
+            border-radius: 50%;
+        }
+
+        .location-selector select {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 16px;
+            min-height: 55px;
+        }
+
+        .social-btn:hover {
+            border-color: #1976d2;
+            background: #f8f9fa;
+        }
+
+        .social-btn.google::before {
+            content: "G";
+            width: 24px;
+            height: 24px;
+            background: #4285f4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .social-btn.facebook::before {
+            content: "f";
+            width: 24px;
+            height: 24px;
+            background: #1877f2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .social-btn.linkedin::before {
+            content: "in";
+            width: 24px;
+            height: 24px;
+            background: #0077b5;
+            color: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+            position: relative;
+        }
+
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .email-section {
+            margin-bottom: 30px;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .email-input:focus {
+            border-color: #1976d2;
+        }
+
+        .email-input::placeholder {
+            color: #999;
+        }
+
+        .create-btn {
+            width: 100%;
+            padding: 15px;
+            background: #ccc;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .create-btn.active {
+            background: #ff6b35;
+            cursor: pointer;
+        }
+
+        .create-btn.active:hover {
+            background: #e55a2d;
+        }
+
+        .signin-link {
+            text-align: center;
+            color: #666;
+        }
+
+        .signin-link a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Registration form styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #1976d2;
+        }
+
+        .form-group input[readonly] {
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        .form-group input:invalid {
+            border-color: #f44336;
+        }
+
+        .form-group input:valid {
+            border-color: #4caf50;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-section {
+                min-height: 300px;
+            }
+            
+            .right-section {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="header">
+                <div class="logo">Alibaba.com</div>
+            </div>
+            <div class="quote-text">
+                "In just 1 year, LTA International generated 14 new customers with new sales growth totaling $1.5 million."
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="signup-form">
+                <h1 class="form-title">Sign up as a supplier</h1>
+                
+                <div class="location-selector">
+                    <div class="flag-icon"></div>
+                    <span>Company location:</span>
+                    <select>
+                        <option>Bangladesh</option>
+                        <option>India</option>
+                        <option>China</option>
+                        <option>USA</option>
+                        <option>UK</option>
+                    </select>
+                    <span>▼</span>
+                </div>
+
+                <div class="social-buttons">
+                    <button class="social-btn google">Continue with Google</button>
+                    <button class="social-btn facebook">Continue with Facebook</button>
+                    <button class="social-btn linkedin">Continue with LinkedIn</button>
+                </div>
+
+                <div class="divider">
+                    <span>Or</span>
+                </div>
+
+                <div class="email-section">
+                    <input type="email" class="email-input" placeholder="Email" id="emailInput">
+                </div>
+
+                <button class="create-btn" id="createBtn">Create account</button>
+
+                <div class="signin-link">
+                    Already have an account? <a href="#">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Email validation function
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Get elements
+        const emailInput = document.getElementById('emailInput');
+        const createBtn = document.getElementById('createBtn');
+
+        // Show registration form when email input is clicked
+        emailInput.addEventListener('click', function() {
+            showRegistrationForm('');
+        });
+
+        // Show registration form when email input is focused
+        emailInput.addEventListener('focus', function() {
+            showRegistrationForm('');
+        });
+
+        // Make the create button active when valid email is entered
+        emailInput.addEventListener('input', function() {
+            const email = this.value.trim();
+            if (email !== '' && validateEmail(email)) {
+                createBtn.classList.add('active');
+                createBtn.style.cursor = 'pointer';
+                createBtn.disabled = false;
+            } else {
+                createBtn.classList.remove('active');
+                createBtn.style.cursor = 'not-allowed';
+                createBtn.disabled = true;
+            }
+        });
+
+        // Add click handlers for social buttons
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                showRegistrationForm('');
+            });
+        });
+
+        // Add click handler for create account button
+        createBtn.addEventListener('click', function() {
+            if (this.classList.contains('active')) {
+                const email = emailInput.value.trim();
+                if (email && validateEmail(email)) {
+                    showRegistrationForm(email);
+                }
+            }
+        });
+
+        // Function to show registration form
+        function showRegistrationForm(email) {
+            document.body.innerHTML = `
+                <div class="container">
+                    <div class="left-section">
+                        <div class="header">
+                            <div class="logo">Alibaba.com</div>
+                            <button class="language-selector">English ▼</button>
+                        </div>
+                        <div class="quote-text">
+                            "In just 1 year, LTA International generated 14 new customers with new sales growth totaling $1.5 million."
+                        </div>
+                    </div>
+
+                    <div class="right-section">
+                        <div class="signup-form">
+                            <h1 class="form-title">Complete Your Registration</h1>
+                            
+                            <form id="registrationForm">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" name="username" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" value="${email}" ${email ? 'readonly' : ''}>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+
+                                <button type="submit" class="create-btn active" id="submitBtn">Sign Up</button>
+                            </form>
+
+                            <div class="signin-link">
+                                Already have an account? <a href="#" onclick="goBackToSignIn()">Sign in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add form validation
+            const form = document.getElementById('registrationForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const username = formData.get('username');
+                const emailValue = formData.get('email');
+                const password = formData.get('password');
+                const confirmPassword = formData.get('confirmPassword');
+                const phone = formData.get('phone');
+
+                // Validate all fields
+                if (!username || !emailValue || !password || !confirmPassword || !phone) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                if (!validateEmail(emailValue)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    alert('Password must be at least 6 characters long');
+                    return;
+                }
+
+                // Success
+                alert('Account created successfully! Welcome to Alibaba.com');
+                
+                // Redirect to success page or dashboard
+                document.body.innerHTML = `
+                    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f5f5f5;">
+                        <div style="background: white; padding: 40px; border-radius: 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                            <h2 style="color: #4caf50; margin-bottom: 20px;">🎉 Account Created Successfully!</h2>
+                            <p style="margin-bottom: 20px; color: #666;">Welcome to Alibaba.com, ${username}!</p>
+                            <p style="margin-bottom: 30px; color: #666;">Your account has been created with email: ${emailValue}</p>
+                            <button onclick="location.reload()" style="background: #ff6b35; color: white; padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">Continue to Dashboard</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Function to go back to sign in
+        function goBackToSignIn() {
+            location.reload();
+        }
+
+        // Add click handler for sign in link
+        document.querySelector('.signin-link a').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Redirecting to sign in page...');
+        });
+
+        // Language selector functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('language-selector')) {
+                alert('Language selection menu would open here');
+            }
+        });
+    </script>
+</body>
+</html>
